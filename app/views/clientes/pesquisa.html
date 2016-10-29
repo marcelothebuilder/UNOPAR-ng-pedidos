@@ -1,0 +1,32 @@
+<h1>Pesquisar Clientes</h1>
+<form>
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome de um cliente" ng-model="vm.pesquisaNome" ng-change="vm.pesquisar()">
+    </div>
+</form>
+
+<div class="text-right">
+    <a href="#/clientes/novo" class="btn btn-default">Novo cliente</a>
+</div>
+
+<table class="table" ng-show="vm.temResultados()">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Complemento</th>
+            <th>Data de Nascimento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="cliente in vm.clientes() track by $index">
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.telefone}}</td>
+            <td>{{cliente.endereco}}</td>
+            <td>{{cliente.complemento}}</td>
+            <td>{{cliente.dataNascimento | date}}</td>
+        </tr>
+    </tbody>
+</table>

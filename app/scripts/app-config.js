@@ -5,13 +5,18 @@
         .config(function($routeProvider) {
             $routeProvider
                 .when('/', {
-                    templateUrl: 'views/clientes/pesquisa.html',
-                    controller: 'PesquisaClientesController',
-                    controllerAs: 'vm'
-                })
-                .when('/', {
                     templateUrl: 'views/home/main.html',
                     controller: 'HomeController',
+                    controllerAs: 'vm'
+                })
+                .when('/clientes/pesquisa', {
+                    templateUrl: 'views/clientes/pesquisa.html',
+                    controller: 'ClientesPesquisaController',
+                    controllerAs: 'vm'
+                })
+                .when('/clientes/novo', {
+                    templateUrl: 'views/clientes/novo.html',
+                    controller: 'ClientesNovoController',
                     controllerAs: 'vm'
                 })
                 .otherwise({

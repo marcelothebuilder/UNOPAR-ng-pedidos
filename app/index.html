@@ -8,7 +8,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
-        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
@@ -44,7 +44,7 @@
                                 <a ng-href="#/pedidos">Pedidos</a>
                             </li>
                             <li>
-                                <a ng-href="#/clientes">Clientes</a>
+                                <a ng-href="#/clientes/pesquisa">Clientes</a>
                             </li>
                             <li>
                                 <a ng-href="#/entregadores">Entregadores</a>
@@ -102,6 +102,7 @@
         <script src="/bower_components/angular-route/angular-route.js"></script>
         <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="/bower_components/angular-touch/angular-touch.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -109,6 +110,10 @@
         <script src="scripts/app-modules.js"></script>
         <script src="scripts/app-config.js"></script>
         <script src="scripts/home/HomeController.js"></script>
+        <script src="scripts/clientes/ClientesService.js"></script>
+        <script src="scripts/clientes/ClientesNovoController.js"></script>
+        <script src="scripts/clientes/ClientesPesquisaController.js"></script>
+        <script src="scripts/datetime/mtbDatePicker/mtbDatePicker.js"></script>
         <!-- endbuild -->
     </body>
 </html>

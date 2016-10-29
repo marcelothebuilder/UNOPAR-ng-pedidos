@@ -1,0 +1,8 @@
+<p class="input-group">
+    <input type="text" class="form-control" ng-required="vm.ngRequired" uib-datepicker-popup="{{ vm.format }}" ng-model="vm.ngModel" is-open="vm.opened" datepicker-options="vm.options" close-text="{{vm.textClose}}" alt-input-formats="vm.altInputFormats"/>
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="vm.toggleOpen()">
+            <i class="glyphicon glyphicon-calendar"></i>
+        </button>
+    </span>
+</p>
