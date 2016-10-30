@@ -1,0 +1,30 @@
+<h1>Pesquisar Empresas</h1>
+<form>
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome de um empresa" ng-model="vm.pesquisaNome" ng-change="vm.pesquisar()">
+    </div>
+</form>
+
+<div class="text-right">
+    <a href="#/empresas/nova" class="btn btn-default">Nova empresa</a>
+</div>
+
+<table class="table" ng-show="vm.temResultados()">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Cnpj</td>
+            <td>Telefone</td>
+            <td>Email</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="empresa in vm.empresas() track by $index">
+            <td>{{empresa.nome}}</td>
+            <td>{{empresa.cnpj}}</td>
+            <td>{{empresa.telefone}}</td>
+            <td>{{empresa.email}}</td>
+        </tr>
+    </tbody>
+</table>

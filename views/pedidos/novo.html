@@ -1,0 +1,58 @@
+<h1>Novo Pedido</h1>
+<form name="formPedido">
+    <label>Cliente</label>
+    <input type="text" ng-model="vm.cliente" uib-typeahead="cliente as cliente.nome for cliente in vm.clientePorNome($viewValue)" typeahead-loading="vm.carregandoClientes" typeahead-no-results="vm.nenhumCliente" class="form-control">
+    <i ng-show="vm.carregandoClientes" class="glyphicon glyphicon-refresh"></i>
+    <div ng-show="vm.nenhumCliente">
+        <i class="glyphicon glyphicon-remove"></i>Sem resultados</div>
+
+    <label>Adicionar produto</label>
+    <input
+        type="text"
+        typeahead-on-select="vm.produtoSelecionado($item, $model, $label, $event)"
+        ng-model="vm.produto"
+        uib-typeahead="produto as vm.produtoLabel(produto) for produto in vm.produtoPorNomeDescricao($viewValue)"
+        typeahead-loading="vm.carregandoProdutos"
+        typeahead-no-results="vm.nenhumProduto"
+        class="form-control">
+    <!-- <input type="text" ng-model="vm.produto" uib-typeahead="produto for produto in vm.produtoPorNomeDescricao($viewValue)" typeahead-loading="vm.carregandoProdutos" typeahead-no-results="vm.nenhumProduto" class="form-control"> -->
+    <i ng-show="vm.carregandoProdutos" class="glyphicon glyphicon-refresh"></i>
+    <div ng-show="vm.nenhumProduto">
+        <i class="glyphicon glyphicon-remove"></i>Sem resultados</div>
+
+    <table class="table">
+        <caption>Itens do pedido</caption>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Custo</th>
+                <th>Quantidade</th>
+                <th>Tamanho</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.itens() track by $index">
+                <td>{{ item.produto.nome }}</td>
+                <td>{{ item.produto.descricao }}</td>
+                <td>{{ item.produto.custo |currency : 'R$' : 2 }}</td>
+                <td><input  class="form-control" type="number" ng-model="item.quantidade"></td>
+                <td>
+                    <select class="form-control" ng-model="item.tamanho" ng-options="tamanho as tamanho.descricao for tamanho in vm.tamanhos() track by tamanho.id"></select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-xs-8">
+            {{ item.produto.nome }}
+            {{ item.produto.descricao }}
+            {{ item.produto.custo |currency : 'R$' : 2 }}
+        </div>
+    </div>
+
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="vm.inserir()" ng-disabled="!vm.isPedidoValido()">Salvar</button>
+    </div>
+</form>

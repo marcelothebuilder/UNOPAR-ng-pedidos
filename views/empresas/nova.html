@@ -1,0 +1,24 @@
+<h1>Nova Empresa</h1>
+<form name="formEmpresa">
+    <div class="form-group">
+        <label for="nome">nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome da empresa" ng-model="vm.empresa.nome" required>
+    </div>
+    <div class="form-group">
+        <label for="cnpj">cnpj</label>
+        <input type="text" class="form-control" id="cnpj" placeholder="Digite o cnpj da empresa" ng-model="vm.empresa.cnpj" required>
+    </div>
+    <div class="form-group">
+        <label for="telefone">telefone</label>
+        <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone da empresa" ng-model="vm.empresa.telefone" required>
+    </div>
+    <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" placeholder="Digite o email da empresa" ng-model="vm.empresa.email" required>
+    </div>
+
+    <div class="text-right">
+        <button type="reset" class="btn btn-default btn-lg">Limpar</button>
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="vm.inserir()" ng-disabled="!formEmpresa.$valid">Salvar</button>
+    </div>
+</form>

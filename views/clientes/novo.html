@@ -1,0 +1,32 @@
+<h1>Novo Cliente</h1>
+<form name="formCliente">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do cliente" ng-model="vm.cliente.nome" required>
+    </div>
+
+    <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone do cliente" ng-model="vm.cliente.telefone" required>
+    </div>
+
+    <div class="form-group">
+        <label for="endereco">Endereço</label>
+        <input type="text" class="form-control" id="endereco" placeholder="Digite o endereco do cliente" ng-model="vm.cliente.endereco" required>
+    </div>
+
+    <div class="form-group">
+        <label for="complemento">Complemento</label>
+        <input type="text" class="form-control" id="complemento" placeholder="Digite o complemento do cliente" ng-model="vm.cliente.complemento" required>
+    </div>
+
+    <div class="form-group">
+        <label for="dataNascimento">Data de Nascimento</label>
+        <mtb-date-picker ng-model="vm.cliente.dataNascimento" ng-required="true"></mtb-date-picker>
+    </div>
+
+    <div class="text-right">
+        <button type="reset" class="btn btn-default btn-lg">Limpar</button>
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="vm.inserir()" ng-disabled="!formCliente.$valid">Salvar</button>
+    </div>
+</form>
