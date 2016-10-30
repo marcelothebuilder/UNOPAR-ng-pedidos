@@ -4,6 +4,7 @@
     mtbNavbar.$inject = ['$location'];
 
     function mtbNavbar($location) {
+        // jshint -W040
         var vm = this;
         vm.menuClass = menuClass;
 

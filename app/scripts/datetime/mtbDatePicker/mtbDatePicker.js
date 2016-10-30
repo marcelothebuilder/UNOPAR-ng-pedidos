@@ -2,6 +2,7 @@
     'use strict';
 
     function mtbDatePicker() {
+        // jshint -W040
         var vm = this;
         vm.opened = false;
         vm.format = 'dd/MM/yyyy';
