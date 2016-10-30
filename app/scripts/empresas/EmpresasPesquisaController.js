@@ -18,13 +18,7 @@
         }
 
         function empresas() {
-            if (!isPesquisando()) {
-                return empresasService.empresas;
-            }
-
-            return empresasService.empresas.filter(function(empresa) {
-                return empresa.nome.indexOf(vm.pesquisaNome) !== -1;
-            });
+            return empresasService.porNome(vm.pesquisaNome);
         }
     }
 

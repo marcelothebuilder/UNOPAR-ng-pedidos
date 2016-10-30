@@ -8,11 +8,12 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
-        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/custom.css">
         <!-- endbuild -->
     </head>
     <body ng-app="com.github.marcelothebuilder.housemm">
@@ -20,45 +21,7 @@
 
         <!-- Add your site or application content here -->
         <div class="header">
-            <div class="navbar navbar-default" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <a class="navbar-brand" href="#/">House&MM</a>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-                        <ul class="nav navbar-nav">
-                            <li class="active">
-                                <a href="#/">Principal</a>
-                            </li>
-                            <!-- <li>
-                                <a ng-href="#/pedidos">Pedidos</a>
-                            </li> -->
-                            <li>
-                                <a ng-href="#/clientes/pesquisa">Clientes</a>
-                            </li>
-                            <!-- <li>
-                                <a ng-href="#/entregadores">Entregadores</a>
-                            </li> -->
-                            <li>
-                                <a ng-href="#/empresas/pesquisa">Empresas</a>
-                            </li>
-                            <li>
-                                <a ng-href="#/produtos/pesquisa">Produto</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <mtb-navbar></mtb-navbar>
         </div>
 
         <div class="container">
@@ -67,7 +30,12 @@
 
         <div class="footer">
             <div class="container">
-                <p><a href="http://marcelothebuilder.github.io" target="_blank">http://marcelothebuilder.github.io</a></p>
+
+                <p>
+                    <a href="http://marcelothebuilder.github.io" target="_blank">http://marcelothebuilder.github.io</a>
+                </p>
+                <br/>
+                <p>Este é um trabalho acadêmico desenvolvido apenas para demonstrar protótipos de telas. Os dados não são armazenados em um armazenamento persistente, ou seja, "somem" após a fechada da aba ou refresh da página.</p>
             </div>
         </div>
 
@@ -117,10 +85,16 @@
         <script src="scripts/empresas/EmpresasNovaController.js"></script>
         <script src="scripts/empresas/EmpresasPesquisaController.js"></script>
 
+        <script src="scripts/pedidos/PedidosService.js"></script>
+        <script src="scripts/pedidos/PedidosNovoController.js"></script>
+        <script src="scripts/pedidos/PedidosPesquisaController.js"></script>
+
         <script src="scripts/produtos/ProdutosService.js"></script>
         <script src="scripts/produtos/ProdutosPesquisaController.js"></script>
 
         <script src="scripts/datetime/mtbDatePicker/mtbDatePicker.js"></script>
+
+        <script src="scripts/navegacao/mtbNavbar/mtbNavbar.js"></script>
         <!-- endbuild -->
     </body>
 </html>

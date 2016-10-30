@@ -6,6 +6,7 @@
     function EmpresasService($q) {
         var self = this;
 
+        self.porNome = porNome;
         self.builder = builder;
         self.inserir = inserir;
         // TODO: adicionar persistencia
@@ -20,6 +21,16 @@
             .build();
 
         self.inserir(empresa);
+
+        function porNome(nome) {
+          if (!nome) {
+              return self.empresas;
+          }
+
+          return self.empresas.filter(function(empresa) {
+              return empresa.nome.indexOf(nome) !== -1;
+          });
+        }
 
         function builder() {
             return new EmpresaBuilder();

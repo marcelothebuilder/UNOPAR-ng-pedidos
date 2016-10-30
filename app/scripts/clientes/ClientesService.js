@@ -6,10 +6,32 @@
     function ClientesService($q) {
         var self = this;
 
+        self.porNome = porNome;
         self.builder = builder;
         self.inserir = inserir;
         // TODO: adicionar persistencia
         self.clientes = [];
+
+        // mock um cliente
+        self.inserir(
+            self.builder()
+              .nome("Geraldo")
+              .endereco("Praça das flores")
+              .complemento("apto")
+              .telefone("31 1421231231")
+              .dataNascimento(new Date())
+              .build()
+        );
+
+        function porNome(nome) {
+          if (!nome) {
+              return $q.resolve(self.clientes);
+          }
+
+          return $q.resolve(self.clientes.filter(function(cliente) {
+              return cliente.nome.indexOf(nome) !== -1;
+          }));
+        }
 
         function builder() {
             return new ClienteBuilder();
@@ -24,6 +46,8 @@
 
             return $q.resolve(cliente);
         }
+
+
     }
 
     // Exemplo de uso:

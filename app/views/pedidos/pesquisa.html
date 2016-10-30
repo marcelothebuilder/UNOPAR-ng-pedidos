@@ -1,0 +1,28 @@
+<h1>Pesquisar Pedidos</h1>
+<form>
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome de um pedido" ng-model="vm.pesquisaNome" ng-change="vm.pesquisar()">
+    </div>
+</form>
+
+<div class="text-right">
+    <a href="#/pedidos/novo" class="btn btn-default">Lançar pedido</a>
+</div>
+
+<table class="table" ng-show="vm.temResultados()">
+    <thead>
+        <tr>
+            <td>Cliente</td>
+            <td>Status</td>
+            <td>Itens</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="pedido in vm.pedidos() track by $index">
+            <td>{{pedido.cliente.nome}}</td>
+            <td><select class="form-control" ng-model="pedido.status" ng-options="status as status.descricao for status in vm.statusPossiveis() track by status.id"></select></td>
+            <td>{{pedido.itens.length}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -8,6 +8,12 @@
         vm.clientes = clientes;
         vm.isPesquisando = isPesquisando;
         vm.temResultados = temResultados;
+        vm.pesquisar = pesquisar;
+
+        var _clientes = [];
+
+        // inicia
+        pesquisar();
 
         function isPesquisando() {
             return vm.pesquisaNome;
@@ -17,14 +23,15 @@
             return vm.clientes().length > 0;
         }
 
-        function clientes() {
-            if (!isPesquisando()) {
-                return clientesService.clientes;
-            }
+        function pesquisar() {
+            clientesService.porNome(vm.pesquisaNome)
+                .then(function(clientes) {
+                    _clientes = clientes;
+                });
+        }
 
-            return clientesService.clientes.filter(function(cliente) {
-                return cliente.nome.indexOf(vm.pesquisaNome) !== -1;
-            });
+        function clientes() {
+            return _clientes;
         }
     }
 

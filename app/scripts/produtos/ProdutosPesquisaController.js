@@ -6,8 +6,13 @@
     function ProdutosPesquisaController(produtosService) {
         var vm = this;
         vm.produtos = produtos;
+        vm.pesquisar = pesquisar;
         vm.isPesquisando = isPesquisando;
         vm.temResultados = temResultados;
+        var _produtos = [];
+
+        // inicializa
+        pesquisar();
 
         function isPesquisando() {
             return vm.pesquisaNomeOuDescricao;
@@ -18,15 +23,14 @@
         }
 
         function produtos() {
-            if (!isPesquisando()) {
-                return produtosService.produtos;
-            }
+            return _produtos;
+        }
 
-            return produtosService.produtos.filter(function(produto) {
-                return [produto.nome, produto.descricao].filter(function(propriedade) {
-                    return propriedade.indexOf(vm.pesquisaNomeOuDescricao) !== -1;
-                }).length > 0;
-            });
+        function pesquisar() {
+            return produtosService.porNomeDescricao(vm.pesquisaNomeOuDescricao)
+                .then(function(produtos) {
+                    _produtos = produtos;
+                });
         }
     }
 

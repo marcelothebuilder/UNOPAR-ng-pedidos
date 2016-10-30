@@ -25,6 +25,8 @@
             'com.github.marcelothebuilder.housemm.entregadores',
             'com.github.marcelothebuilder.housemm.pedidos',
             'com.github.marcelothebuilder.housemm.produtos',
+            'com.github.marcelothebuilder.housemm.global',
+            'com.github.marcelothebuilder.housemm.navegacao',
             'com.github.marcelothebuilder.housemm.datetime'
         ]);
 
@@ -33,6 +35,8 @@
     angular.module('com.github.marcelothebuilder.housemm.entregadores', []);
     angular.module('com.github.marcelothebuilder.housemm.pedidos', []);
     angular.module('com.github.marcelothebuilder.housemm.produtos', []);
+    angular.module('com.github.marcelothebuilder.housemm.global', []);
+    angular.module('com.github.marcelothebuilder.housemm.navegacao', []);
     angular.module('com.github.marcelothebuilder.housemm.home', []);
     angular.module('com.github.marcelothebuilder.housemm.datetime', ['ui.bootstrap']);
 }());

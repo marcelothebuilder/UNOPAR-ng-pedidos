@@ -6,6 +6,7 @@
     function ProdutosService($q) {
         var self = this;
 
+        self.porNomeDescricao = porNomeDescricao;
         self.builder = builder;
         self.inserir = inserir;
         // TODO: adicionar persistencia
@@ -25,6 +26,18 @@
                 .custo(arrayMarmita[2])
                 .build();
         });
+
+        function porNomeDescricao(nomeDescricao) {
+            if (!nomeDescricao) {
+                return $q.resolve(self.produtos);
+            }
+
+            return $q.resolve(self.produtos.filter(function(produto) {
+                return [produto.nome, produto.descricao].filter(function(propriedade) {
+                    return propriedade.indexOf(nomeDescricao) !== -1;
+                }).length > 0;
+            }));
+        }
 
         function builder() {
             return new ProdutoBuilder();

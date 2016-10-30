@@ -34,6 +34,16 @@
                     controller: 'EmpresasNovaController',
                     controllerAs: 'vm'
                 })
+                .when('/pedidos/novo', {
+                    templateUrl: 'views/pedidos/novo.html',
+                    controller: 'PedidosNovoController',
+                    controllerAs: 'vm'
+                })
+                .when('/pedidos/pesquisa', {
+                    templateUrl: 'views/pedidos/pesquisa.html',
+                    controller: 'PedidosPesquisaController',
+                    controllerAs: 'vm'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
