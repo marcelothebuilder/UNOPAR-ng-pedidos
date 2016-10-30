@@ -24,6 +24,16 @@
                     controller: 'ProdutosPesquisaController',
                     controllerAs: 'vm'
                 })
+                .when('/empresas/pesquisa', {
+                    templateUrl: 'views/empresas/pesquisa.html',
+                    controller: 'EmpresasPesquisaController',
+                    controllerAs: 'vm'
+                })
+                .when('/empresas/nova', {
+                    templateUrl: 'views/empresas/nova.html',
+                    controller: 'EmpresasNovaController',
+                    controllerAs: 'vm'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
