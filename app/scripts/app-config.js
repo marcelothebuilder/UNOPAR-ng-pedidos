@@ -19,6 +19,11 @@
                     controller: 'ClientesNovoController',
                     controllerAs: 'vm'
                 })
+                .when('/produtos/pesquisa', {
+                    templateUrl: 'views/produtos/pesquisa.html',
+                    controller: 'ProdutosPesquisaController',
+                    controllerAs: 'vm'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

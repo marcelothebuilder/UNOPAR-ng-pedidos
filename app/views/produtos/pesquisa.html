@@ -1,0 +1,24 @@
+<h1>Pesquisar Produtos</h1>
+<form>
+    <div class="form-group">
+        <label for="nome">Nome/Ingrediente</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome ou ingrediente de um produto" ng-model="vm.pesquisaNomeOuDescricao" ng-change="vm.pesquisar()">
+    </div>
+</form>
+
+<table class="table" ng-show="vm.temResultados()">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Custo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="produto in vm.produtos() track by $index">
+            <td>{{produto.nome}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>{{produto.custo | currency : 'R$' : 2 }}</td>
+        </tr>
+    </tbody>
+</table>
