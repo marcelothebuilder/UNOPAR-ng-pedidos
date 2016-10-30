@@ -17,7 +17,7 @@
 
     angular.module('com.github.marcelothebuilder.housemm.navegacao')
         .component('mtbNavbar', {
-            templateUrl: 'scripts/navegacao/mtbNavbar/mtbNavbar.html',
+            templateUrl: 'views/navegacao/mtbNavbar/mtbNavbar.html',
             controller: mtbNavbar,
             controllerAs: 'vm'
         });

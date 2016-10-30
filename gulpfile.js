@@ -199,7 +199,12 @@ gulp.task('copy:extras', function() {
     .pipe(gulp.dest(yeoman.dist));
 });
 
-gulp.task('copy:fonts', function() {
+gulp.task('copy:bootstrap-fonts', function() {
+  return gulp.src('./bower_components/bootstrap' + '/fonts/**/*')
+    .pipe(gulp.dest(yeoman.dist + '/fonts'));
+});
+
+gulp.task('copy:fonts', ['copy:bootstrap-fonts'], function() {
   return gulp.src(yeoman.app + '/fonts/**/*')
     .pipe(gulp.dest(yeoman.dist + '/fonts'));
 });

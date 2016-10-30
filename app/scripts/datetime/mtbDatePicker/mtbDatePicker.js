@@ -18,7 +18,7 @@
 
     angular.module('com.github.marcelothebuilder.housemm.datetime')
         .component('mtbDatePicker', {
-            templateUrl: 'scripts/datetime/mtbDatePicker/mtbDatePicker.html',
+            templateUrl: 'views/datetime/mtbDatePicker/mtbDatePicker.html',
             controller: mtbDatePicker,
             controllerAs: 'vm',
             bindings: {
