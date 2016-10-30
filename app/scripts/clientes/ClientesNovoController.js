@@ -5,7 +5,6 @@
         var vm = this;
         vm.cliente = {};
         vm.inserir = inserir;
-        vm.abrirDataNascimentoPicker = abrirDataNascimentoPicker;
 
         function inserir() {
             var cliente = clientesService.builder()
@@ -23,11 +22,6 @@
                     window.alert("Cliente inserido com sucesso!");
                     vm.cliente = {};
                 });
-        }
-
-        function abrirDataNascimentoPicker() {
-            vm.dataNascimentoPicker = vm.dataNascimentoPicker || {};
-            vm.dataNascimentoPicker.opened = !vm.dataNascimentoPicker.opened;
         }
     }
 
